@@ -1,0 +1,338 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Entre Manos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: landing de producto. Hero a dos columnas (promesa + teléfono con una lección), luego bandas alternadas blanco/lila que bajan del problema a la compra */
+:root{
+  --bg:#FFFFFF; --band:#F6F1FF; --line:#E6DEF7;
+  --ink:#24173F; --muted:#5B5470;
+  --brand:#3B1677; --brand-2:#7B57D1; --lilac:#C9B6F2; --sun:#F6B93B; --sun-ink:#3B1677;
+  --deep:#2A1157; --on-deep:#FFFFFF; --on-deep-soft:#D4C6F5;
+  --phone:#FFFFFF; --phone-frame:#24173F;
+  --display:'Fredoka','Nunito',system-ui,sans-serif;
+  --body:'Nunito',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14101D; --band:#1F1830; --line:#33284A;
+  --ink:#F1ECFA; --muted:#B4AAC8;
+  --brand:#D4C6F5; --brand-2:#A88BEB; --lilac:#C9B6F2; --sun:#F6B93B; --sun-ink:#2A1157;
+  --deep:#2A1157; --on-deep:#FFFFFF; --on-deep-soft:#D4C6F5;
+  --phone:#211933; --phone-frame:#0B0812;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#14101D; --band:#1F1830; --line:#33284A;
+  --ink:#F1ECFA; --muted:#B4AAC8;
+  --brand:#D4C6F5; --brand-2:#A88BEB; --lilac:#C9B6F2; --sun:#F6B93B; --sun-ink:#2A1157;
+  --deep:#2A1157; --on-deep:#FFFFFF; --on-deep-soft:#D4C6F5;
+  --phone:#211933; --phone-frame:#0B0812;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance;color:var(--brand)}
+p{margin:0}
+a{color:var(--brand-2)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-2)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;font:700 16px/1 var(--body);text-decoration:none;cursor:pointer;border:2px solid transparent}
+.btn-sun{background:var(--sun);color:var(--sun-ink)}
+.btn-sun:hover{filter:brightness(1.05)}
+.btn-ghost{border-color:var(--lilac);color:var(--brand);background:transparent}
+.btn-ghost:hover{background:var(--band)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s, filter .15s, background .15s}.btn:hover{transform:translateY(-1px)}}
+
+/* Nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:22px;color:var(--brand)}
+.brand svg{width:36px;height:36px}
+.nav-links{display:flex;gap:24px;font-weight:700;font-size:15px}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--brand)}
+.nav .btn{min-height:42px;padding:0 18px;font-size:15px}
+@media (max-width:820px){.nav-links{display:none}}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-block:64px 72px}
+.hero-copy{display:flex;flex-direction:column;gap:22px}
+.badge{align-self:flex-start;display:inline-flex;gap:8px;align-items:center;background:var(--band);color:var(--brand);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:800}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--sun);display:block}
+.hero h1{font-size:clamp(42px,6.4vw,72px);font-weight:700;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;color:var(--brand-2);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:2%;right:2%;bottom:-.08em;height:.14em;border-radius:99px;background:var(--sun);z-index:-1}
+.hero .sub{font-size:20px;color:var(--muted);max-width:52ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.slogan{font-family:var(--display);font-weight:500;font-size:18px;color:var(--brand)}
+.slogan b{color:var(--sun)}
+
+/* Phone */
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.phone{width:300px;max-width:100%;border-radius:44px;background:var(--phone-frame);padding:12px;box-shadow:0 30px 60px -30px rgba(42,17,87,.45)}
+.screen{border-radius:34px;background:var(--phone);padding:22px 18px 20px;display:flex;flex-direction:column;gap:14px}
+.s-top{display:flex;justify-content:space-between;align-items:center}
+.s-tag{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-2)}
+.s-step{font-size:12px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.s-title{font-family:var(--display);font-weight:600;font-size:22px;color:var(--brand);line-height:1.2}
+.s-bar{height:8px;border-radius:99px;background:var(--band);overflow:hidden}
+.s-bar span{display:block;height:100%;width:40%;background:var(--brand-2);border-radius:99px}
+.s-video{aspect-ratio:4/3;max-width:100%;border-radius:22px;background:var(--band);display:grid;place-items:center;position:relative}
+.s-video svg{width:46%;height:auto}
+.s-video small{position:absolute;bottom:10px;left:12px;font-size:12px;font-weight:700;color:var(--muted)}
+.s-feedback{display:flex;gap:10px;align-items:flex-start;background:var(--band);border-radius:16px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4}
+.s-feedback b{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--sun);color:var(--sun-ink);display:grid;place-items:center;font-size:14px}
+.s-btn{min-height:46px;border-radius:999px;background:var(--brand-2);color:#FFFFFF;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px}
+.phone-note{font-size:13px;font-weight:700;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){
+  .phone{animation:float 6s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-8px)}}
+  .s-bar span{animation:grow 2.4s ease-out both}
+  @keyframes grow{from{width:12%}}
+}
+
+/* Bands */
+section{padding-block:88px;scroll-margin-top:72px}
+.band{background:var(--band)}
+.head{display:flex;flex-direction:column;gap:12px;max-width:720px;margin-bottom:44px}
+.head h2{font-size:clamp(32px,4.4vw,46px);font-weight:700}
+.head p:not(.eyebrow){font-size:19px;color:var(--muted)}
+
+/* Problem */
+.problem .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.quote{font-family:var(--display);font-weight:600;font-size:clamp(30px,4vw,44px);line-height:1.2;color:var(--brand)}
+.quote span{color:var(--brand-2)}
+.today{display:flex;flex-direction:column;gap:12px}
+.today li{list-style:none;display:flex;gap:12px;align-items:baseline;font-weight:600}
+.today ul{margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.today li::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;border:2px solid var(--lilac);transform:translateY(-1px)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--bg);border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.step .n{font-family:var(--display);font-weight:700;font-size:15px;color:var(--sun-ink);background:var(--sun);width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+.step h3{font-size:26px}
+.step p{color:var(--muted)}
+
+/* Situations */
+.sits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.sit{border:2px solid var(--line);border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.sit svg{width:40px;height:40px}
+.sit h3{font-size:21px}
+.sit p{font-size:15px;color:var(--muted)}
+
+/* Compare */
+.compare{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.col{border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:14px}
+.col.them{background:var(--bg);border:2px solid var(--line)}
+.col.us{background:var(--deep);color:var(--on-deep)}
+.col.us h3{color:var(--on-deep)}
+.col h3{font-size:24px}
+.col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.col li{display:flex;gap:12px;align-items:flex-start;font-weight:600}
+.col li svg{flex:0 0 22px;width:22px;height:22px;margin-top:2px}
+.col.them li{color:var(--muted)}
+
+/* Audiences */
+.aud{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.card{border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:16px;background:var(--bg)}
+.card h3{font-size:30px}
+.card p{color:var(--muted)}
+.card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-weight:600}
+.card .btn{align-self:flex-start;margin-top:auto}
+.card.inst{background:var(--deep);color:var(--on-deep)}
+.card.inst h3{color:var(--on-deep)}
+.card.inst p{color:var(--on-deep-soft)}
+.card.inst .eyebrow{color:var(--sun)}
+
+/* Trust */
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.t{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:3px solid var(--lilac)}
+.t h3{font-size:21px}
+.t p{color:var(--muted);font-size:16px}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:12px;max-width:820px}
+details{background:var(--bg);border-radius:20px;padding:4px 24px}
+summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:20px;color:var(--brand);padding-block:18px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;color:var(--brand-2);flex:0 0 auto}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:20px;color:var(--muted)}
+
+/* Final CTA */
+.final{background:var(--deep);color:var(--on-deep);padding-block:80px}
+.final .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+.final h2{color:var(--on-deep);font-size:clamp(34px,5vw,56px)}
+.final p{color:var(--on-deep-soft);font-size:19px;max-width:56ch}
+.contact{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;background:rgba(255,255,255,.08);border-radius:999px;padding:8px 8px 8px 22px}
+.contact span{font-weight:800;font-size:18px;color:var(--on-deep);user-select:all}
+.contact .btn{min-height:44px}
+#copied{min-height:1.4em;font-size:15px;font-weight:700;color:var(--sun)}
+
+footer .wrap{padding-block:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:15px}
+footer b{color:var(--ink)}
+
+@media (max-width:900px){
+  .hero .wrap,.problem .wrap,.compare,.aud{grid-template-columns:minmax(0,1fr)}
+  .steps,.trust{grid-template-columns:minmax(0,1fr)}
+  .sits{grid-template-columns:repeat(2,minmax(0,1fr))}
+  section{padding-block:64px}
+  .hero .wrap{padding-block:40px 56px;gap:40px}
+}
+@media (max-width:480px){.sits{grid-template-columns:minmax(0,1fr)}.card,.col{padding:24px}}
+</style>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Entre Manos, inicio">
+      <svg viewBox="-10 -10 220 220" aria-hidden="true"><g transform="rotate(-10 104 110)"><g style="fill:var(--brand)"><rect x="56" y="40" width="20" height="64" rx="10"/><rect x="81" y="26" width="20" height="78" rx="10"/><rect x="106" y="30" width="20" height="74" rx="10"/><rect x="131" y="46" width="20" height="58" rx="10"/><rect x="50" y="92" width="20" height="56" rx="10" transform="rotate(-38 60 148)"/><rect x="52" y="88" width="104" height="72" rx="34"/><path d="M120,154 L150,182 L148,128 Z"/></g><circle cx="82" cy="124" r="9" fill="#C9B6F2"/><circle cx="104" cy="124" r="9" style="fill:var(--bg)"/><circle cx="126" cy="124" r="9" fill="#F6B93B"/></g><g fill="none" stroke-linecap="round"><path d="M170,52 Q186,70 180,94" stroke="#F6B93B" stroke-width="10"/><path d="M188,34 Q212,66 200,104" stroke="#C9B6F2" stroke-width="9"/></g></svg>
+      <span><span style="color:var(--brand-2)">Entre</span> Manos</span>
+    </a>
+    <div class="nav-links"><a href="#como">Cómo funciona</a><a href="#situaciones">Situaciones</a><a href="#para-quien">Para quién</a><a href="#preguntas">Preguntas</a></div>
+    <a class="btn btn-sun" href="#contacto">Quiero probarla</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>Aprendé LSA para <em>conversar</em> de verdad.</h1>
+      <p class="sub">Entre Manos te enseña Lengua de Señas Argentina con situaciones de la vida real: una cena en familia, un mate con amigos, atender a alguien en tu trabajo. Aprendés, practicás con la cámara y recibís feedback.</p>
+      <div class="ctas"><a class="btn btn-sun" href="#contacto">Sumarme a las pruebas</a><a class="btn btn-ghost" href="#instituciones">Soy una institución</a></div>
+      <p class="slogan">Aprendé<b>.</b> Practicá<b>.</b> Comunicá<b>.</b> Conectá<b>.</b></p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone" role="img" aria-label="Vista ilustrativa de una lección: situación En familia, saludar en una cena, paso 2 de 5, con video de la seña, feedback y botón para practicar con la cámara">
+        <div class="screen" aria-hidden="true">
+          <div class="s-top"><span class="s-tag">Situación · En familia</span><span class="s-step">2 / 5</span></div>
+          <p class="s-title">Saludar a todos en una cena</p>
+          <div class="s-bar"><span></span></div>
+          <div class="s-video">
+            <svg viewBox="-10 -10 220 220"><g transform="rotate(-10 104 110)"><g fill="#7B57D1"><rect x="56" y="40" width="20" height="64" rx="10"/><rect x="81" y="26" width="20" height="78" rx="10"/><rect x="106" y="30" width="20" height="74" rx="10"/><rect x="131" y="46" width="20" height="58" rx="10"/><rect x="50" y="92" width="20" height="56" rx="10" transform="rotate(-38 60 148)"/><rect x="52" y="88" width="104" height="72" rx="34"/><path d="M120,154 L150,182 L148,128 Z"/></g><circle cx="82" cy="124" r="8.5" fill="#C9B6F2"/><circle cx="104" cy="124" r="8.5" fill="#FFFFFF"/><circle cx="126" cy="124" r="8.5" fill="#F6B93B"/></g><g fill="none" stroke-linecap="round"><path d="M170,52 Q186,70 180,94" stroke="#F6B93B" stroke-width="9"/><path d="M188,34 Q212,66 200,104" stroke="#C9B6F2" stroke-width="8"/></g></svg>
+            <small>Video de la seña</small>
+          </div>
+          <div class="s-feedback"><b>✓</b><span>¡Bien! Ahora repetilo un poco más lento.</span></div>
+          <div class="s-btn">Practicar con la cámara</div>
+        </div>
+      </div>
+      <p class="phone-note">Vista ilustrativa del prototipo</p>
+    </div>
+  </div>
+</header>
+
+<section class="band problem" aria-labelledby="t-problema">
+  <div class="wrap">
+    <h2 class="quote" id="t-problema">Saber señas sueltas no alcanza <span>para sostener una charla.</span></h2>
+    <div class="today">
+      <p class="eyebrow">Lo que pasa hoy</p>
+      <p style="color:var(--muted)">Si querés comunicarte con un familiar, una amiga o una persona que atendés y que es sorda, probablemente ya intentaste con:</p>
+      <ul><li>Videos y redes con señas aisladas</li><li>Diccionarios que muestran palabras, no conversaciones</li><li>Cursos que no siempre encajan en tus horarios</li><li>Pedir ayuda a otra persona… o evitar la conversación</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="como" aria-labelledby="t-como">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Cómo funciona</p><h2 id="t-como">Del primer saludo a una conversación real</h2><p>Cada lección parte de una situación cotidiana y te acompaña hasta que puedas usarla.</p></div>
+    <div class="steps">
+      <article class="step band"><span class="n">1</span><h3>Aprendé</h3><p>Lecciones cortas organizadas por situaciones, no por listas de palabras. Ves cada seña en video y en contexto.</p></article>
+      <article class="step band"><span class="n">2</span><h3>Practicá</h3><p>Repetí frente a la cámara y recibí feedback sobre tu práctica para saber qué ajustar.</p></article>
+      <article class="step band"><span class="n">3</span><h3>Comunicá</h3><p>Llevá lo que practicaste a tu día a día y ganá confianza para conversar con más autonomía.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="situaciones" aria-labelledby="t-sits">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Situaciones</p><h2 id="t-sits">Aprendé lo que de verdad vas a usar</h2></div>
+    <div class="sits">
+      <article class="sit" style="background:var(--bg)"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#7B57D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 20 7l14 11"/><path d="M10 16v16h20V16"/><circle cx="20" cy="24" r="3.5" fill="#F6B93B" stroke="none"/></svg><h3>En familia</h3><p>Cenas, cumpleaños y charlas de todos los días.</p></article>
+      <article class="sit" style="background:var(--bg)"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#7B57D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="5"/><circle cx="27" cy="14" r="5"/><path d="M5 33c1-6 5-9 9-9s8 3 9 9"/><path d="M22 26c1.5-1.3 3-2 5-2 4 0 8 3 9 9"/></svg><h3>Con amigos</h3><p>Planes, mensajes y salidas compartidas.</p></article>
+      <article class="sit" style="background:var(--bg)"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#7B57D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="28" height="18" rx="4"/><path d="M15 14v-3a5 5 0 0 1 10 0v3"/><circle cx="20" cy="23" r="3" fill="#F6B93B" stroke="none"/></svg><h3>Atención al público</h3><p>Recibir, orientar y resolver consultas.</p></article>
+      <article class="sit" style="background:var(--bg)"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#7B57D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 20 8l16 7-16 7z"/><path d="M11 19v8c3 3 15 3 18 0v-8"/><circle cx="34" cy="24" r="2.5" fill="#F6B93B" stroke="none"/></svg><h3>Escuela y trabajo</h3><p>Compañeros, docentes y equipos inclusivos.</p></article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-dif">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Por qué Entre Manos</p><h2 id="t-dif">No te enseñamos palabras sueltas. Te preparamos para conversar.</h2></div>
+    <div class="compare">
+      <div class="col them"><h3>Aprender por tu cuenta</h3><ul>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 11h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Señas aisladas, sin contexto</li>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 11h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Mirás, pero no sabés si lo hacés bien</li>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 11h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Contenido disperso en muchos lugares</li>
+      </ul></div>
+      <div class="col us"><h3>Con Entre Manos</h3><ul>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#F6B93B"/><path d="m6.5 11.5 3 3 6-6.5" fill="none" stroke="#2A1157" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Situaciones cotidianas, de principio a fin</li>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#F6B93B"/><path d="m6.5 11.5 3 3 6-6.5" fill="none" stroke="#2A1157" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Práctica con cámara y feedback</li>
+        <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#F6B93B"/><path d="m6.5 11.5 3 3 6-6.5" fill="none" stroke="#2A1157" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Lecciones, práctica y avance en una sola app</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="para-quien" aria-labelledby="t-aud">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Para quién</p><h2 id="t-aud">Para personas y para organizaciones</h2></div>
+    <div class="aud">
+      <article class="card"><p class="eyebrow">Personas</p><h3>Familiares y amigos de personas sordas</h3><p>Para quienes quieren comunicarse mejor con alguien que quieren, a su ritmo y desde el celular.</p><ul><li>Lecciones por situaciones</li><li>Práctica con cámara</li><li>Tu avance, paso a paso</li></ul><a class="btn btn-sun" href="#contacto">Sumarme a las pruebas</a></article>
+      <article class="card inst" id="instituciones"><p class="eyebrow">Instituciones</p><h3>Escuelas, universidades y empresas</h3><p>Licencias para ofrecer aprendizaje de LSA a estudiantes, docentes o equipos de trabajo, como parte de sus políticas de inclusión y accesibilidad.</p><ul><li>Acceso para tu comunidad o tu equipo</li><li>Ideal para RR. HH., accesibilidad y coordinación académica</li><li>Planes y precios: consultalos por email</li></ul><a class="btn btn-sun" href="#contacto">Pedir una demo</a></article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-trust">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Nuestro compromiso</p><h2 id="t-trust">Hecha con respeto por la comunidad sorda</h2></div>
+    <div class="trust">
+      <div class="t"><h3>Contenido validado</h3><p>Las señas y las situaciones se revisan con personas sordas y docentes e intérpretes de LSA antes de publicarse.</p></div>
+      <div class="t"><h3>Promesas honestas</h3><p>Entre Manos te ayuda a aprender y practicar. No es un traductor automático ni reemplaza a un intérprete.</p></div>
+      <div class="t"><h3>Tu cámara, tus datos</h3><p>La cámara se usa solo para tu práctica, y te vamos a explicar con claridad qué datos se usan y para qué.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Preguntas frecuentes</p><h2 id="t-faq">Lo que nos suelen preguntar</h2></div>
+    <div class="faq">
+      <details><summary>¿Ya puedo descargar la app?</summary><p>Todavía no. Estamos probando el prototipo con usuarios. Dejanos tu contacto y te avisamos cuando puedas sumarte a las pruebas.</p></details>
+      <details><summary>¿Necesito saber algo de LSA para empezar?</summary><p>No. Las lecciones arrancan desde situaciones simples, como saludar o presentarte, y suben de nivel de a poco.</p></details>
+      <details><summary>¿Reemplaza a un curso o a un intérprete?</summary><p>No. Entre Manos es un complemento para aprender y practicar. En situaciones formales o importantes, un intérprete de LSA sigue siendo fundamental.</p></details>
+      <details><summary>¿Cómo funciona la práctica con cámara?</summary><p>Hacés la seña frente a la cámara del celular y la app te da feedback para mejorar. Es una función que estamos desarrollando y probando.</p></details>
+      <details><summary>¿Cuánto cuesta?</summary><p>Los precios se consultan por email. Escribinos a entremanos.startup@gmail.com y te enviamos los planes para personas e instituciones.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contacto" aria-labelledby="t-final">
+  <div class="wrap">
+    <h2 id="t-final">Empezá a conectar, entre manos.</h2>
+    <p>Consultá precios, sumate a las pruebas o pedí una demo para tu institución. Escribinos y te respondemos.</p>
+    <div class="contact"><span id="mail">entremanos.startup@gmail.com</span><button class="btn btn-sun" type="button" id="copy">Copiar email</button></div>
+    <p id="copied" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Entre Manos</b> · App para aprender y practicar Lengua de Señas Argentina (LSA)</p>
+    <p>entremanos.startup@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var t = document.getElementById('mail').textContent, out = document.getElementById('copied');
+  function sel(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent='Seleccioné el email: copialo con Cmd/Ctrl + C.'; }
+  try { navigator.clipboard.writeText(t).then(function(){ out.textContent='Email copiado.'; }, sel); } catch(e){ sel(); }
+});
+</script>
+
+</body></html>
